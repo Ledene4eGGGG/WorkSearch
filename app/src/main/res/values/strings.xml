@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Простые рецепты</string>
+    <string name="title_home">Главная</string>
+    <string name="title_dashboard">Поиск</string>
+    <string name="title_notifications">Любимые</string>
+    <string name="menu_today">Что в меню на сегодня</string>
+    <string name="recepi_day">Рецепт дня</string>
+</resources>
