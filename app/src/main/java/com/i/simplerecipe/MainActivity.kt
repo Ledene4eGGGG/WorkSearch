@@ -27,11 +27,7 @@ class MainActivity : AppCompatActivity() {
         val tv = binding.tvRecepi
         val press = binding.btnPress
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://dummyjson.com")
-            .addConverterFactory(GsonConverterFactory.create()).build()
-        val productApi = retrofit.create(ProductApi::class.java)
-
+        val productApi = ServiceLocator.retrofit.create(ProductApi::class.java)
 
 
         press.setOnClickListener { CoroutineScope(Dispatchers.IO).launch {
@@ -46,3 +42,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
