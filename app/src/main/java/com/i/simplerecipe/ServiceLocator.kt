@@ -7,12 +7,13 @@ import com.chuckerteam.chucker.api.RetentionManager
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.Base64.Decoder
 
 
 object ServiceLocator {
 
     private lateinit var okHttpClient: OkHttpClient
+
+    lateinit var retrofit: Retrofit
 
     fun initiation(context: Context) {
 
@@ -29,24 +30,14 @@ object ServiceLocator {
             .alwaysReadResponseBody(true)
             .build()
 
-
         okHttpClient = OkHttpClient.Builder()
             .addInterceptor(chuckerInterceptor)
             .build()
+
+        retrofit = Retrofit.Builder()
+            .baseUrl("https://dummyjson.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
     }
-
-    val retrofit = Retrofit.Builder()
-        .baseUrl("https://dummyjson.com")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-
-
-
-
-
-
-
-
-
 }
