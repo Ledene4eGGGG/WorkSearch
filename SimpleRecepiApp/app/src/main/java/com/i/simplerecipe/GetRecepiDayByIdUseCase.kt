@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 class GetRecepiDayByIdUseCase(
     private val repository: Repository
 ) {
-    suspend operator fun invoke(productId : Int): RecepiDayResponse {
+    suspend operator fun invoke(productId: Int): RecepiDayResponse {
         return withContext(Dispatchers.IO) {
             repository.getRecepiDay(productId)
         }

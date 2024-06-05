@@ -23,13 +23,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.placeholder, HomeFragment())
-            .addToBackStack(null)
-            .commit()
-
-
+        supportFragmentManager.beginTransaction().add(R.id.placeholder, HomeFragment())
+            .addToBackStack(null).commit()
     }
 
     private fun initNavigation() {
@@ -41,21 +36,24 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     val tag = "home"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: HomeFragment(), tag)
+                    changeFragment(fragment ?: HomeFragment(), tag)
                     true
                 }
+
                 R.id.navigation_search -> {
                     val tag = "favourites"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: com.i.simplerecipe.SearchFragment(), tag)
+                    changeFragment(fragment ?: com.i.simplerecipe.SearchFragment(), tag)
                     true
                 }
+
                 R.id.navigation_favourites -> {
                     val tag = "watch_later"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: com.i.simplerecipe.FavouritesFragment(), tag)
+                    changeFragment(fragment ?: com.i.simplerecipe.FavouritesFragment(), tag)
                     true
                 }
+
                 else -> false
             }
         }
@@ -65,16 +63,13 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.popBackStack()
     }
 
-    fun launchBreakfastFragment(){
+    fun launchBreakfastFragment() {
         val bundle = Bundle()
         val fragment = BreakfastFragment()
         fragment.arguments = bundle
 
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.placeholder, fragment)
-            .commit()
+        supportFragmentManager.beginTransaction().addToBackStack(null)
+            .replace(R.id.placeholder, fragment).commit()
     }
 
     fun launchLunchFragment() {
@@ -82,11 +77,8 @@ class MainActivity : AppCompatActivity() {
         val fragment = LunchFragment()
         fragment.arguments = bundle
 
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.placeholder, fragment)
-            .commit()
+        supportFragmentManager.beginTransaction().addToBackStack(null)
+            .replace(R.id.placeholder, fragment).commit()
     }
 
     fun launchDinnerFragment() {
@@ -94,11 +86,8 @@ class MainActivity : AppCompatActivity() {
         val fragment = DinnerFragment()
         fragment.arguments = bundle
 
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.placeholder, fragment)
-            .commit()
+        supportFragmentManager.beginTransaction().addToBackStack(null)
+            .replace(R.id.placeholder, fragment).commit()
     }
 
     fun launchRecepiDayFragment(productId: Int) {
@@ -107,22 +96,16 @@ class MainActivity : AppCompatActivity() {
         val fragment = RecepiDayFragment()
         fragment.arguments = bundle
 
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.placeholder, fragment)
-            .commit()
+        supportFragmentManager.beginTransaction().addToBackStack(null)
+            .replace(R.id.placeholder, fragment).commit()
     }
 
     private fun checkFragmentExistence(tag: String): Fragment? =
         supportFragmentManager.findFragmentByTag(tag)
 
     private fun changeFragment(fragment: Fragment, tag: String) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.placeholder, fragment, tag)
-            .addToBackStack(null)
-            .commit()
+        supportFragmentManager.beginTransaction().replace(R.id.placeholder, fragment, tag)
+            .addToBackStack(null).commit()
     }
 
 }
