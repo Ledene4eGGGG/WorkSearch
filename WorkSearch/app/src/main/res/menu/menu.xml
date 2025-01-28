@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:title="Поиск"
+        app:showAsAction="withText"/>
+    <item
+        android:id="@+id/favourites"
+        android:icon="@drawable/favourite"
+        android:title="Избранное"
+        app:showAsAction="withText"/>
+    <item
+        android:id="@+id/feedback"
+        android:icon="@drawable/feedback"
+        android:title="Отклики"
+        app:showAsAction="withText"/>
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/message"
+        android:title="Сообщения"
+        app:showAsAction="withText"/>
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile"
+        android:title="Профиль"
+        app:showAsAction="withText"/>
+</menu>
